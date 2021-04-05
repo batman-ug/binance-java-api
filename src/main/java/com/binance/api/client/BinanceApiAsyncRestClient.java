@@ -19,6 +19,7 @@ import com.binance.api.client.domain.event.ListenKey;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.general.ExchangeInfo;
 import com.binance.api.client.domain.general.ServerTime;
+import com.binance.api.client.domain.general.TradeFee;
 import com.binance.api.client.domain.market.AggTrade;
 import com.binance.api.client.domain.market.BookTicker;
 import com.binance.api.client.domain.market.Candlestick;
@@ -55,6 +56,11 @@ public interface BinanceApiAsyncRestClient {
    * ALL supported assets and whether or not they can be withdrawn.
    */
   void getAllAssets(BinanceApiCallback<List<Asset>> callback);
+
+  /**
+   * @return All trade fees for each asset.
+   */
+  void getAllTradeFees(BinanceApiCallback<List<TradeFee>> callback);
 
   // Market Data endpoints
 

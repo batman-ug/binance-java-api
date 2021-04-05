@@ -7,6 +7,7 @@ import com.binance.api.client.domain.account.request.CancelOrderResponse;
 import com.binance.api.client.domain.account.request.OrderRequest;
 import com.binance.api.client.domain.account.request.OrderStatusRequest;
 import com.binance.api.client.domain.general.ExchangeInfo;
+import com.binance.api.client.domain.general.TradeFee;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.market.AggTrade;
 import com.binance.api.client.domain.market.BookTicker;
@@ -46,6 +47,11 @@ public interface BinanceApiRestClient {
    * @return All the supported assets and whether or not they can be withdrawn.
    */
   List<Asset> getAllAssets();
+
+	/**
+	 * @return All trade fees for each asset.
+	 */
+	List<TradeFee> getAllTradeFees();
 
   // Market Data endpoints
 

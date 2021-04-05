@@ -11,6 +11,7 @@ import com.binance.api.client.domain.event.ListenKey;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.general.ExchangeInfo;
 import com.binance.api.client.domain.general.ServerTime;
+import com.binance.api.client.domain.general.TradeFee;
 import com.binance.api.client.domain.market.*;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -36,6 +37,10 @@ public interface BinanceApiService {
 	@Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
 	@GET("/sapi/v1/margin/allAssets")
 	Call<List<Asset>> getAllAssets();
+
+	@Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
+	@GET("/sapi/v1/asset/tradeFee")
+	Call<List<TradeFee>> getAllTradeFees();
 
     // Market data endpoints
 
