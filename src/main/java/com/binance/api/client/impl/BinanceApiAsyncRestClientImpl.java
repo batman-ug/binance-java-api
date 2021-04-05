@@ -22,6 +22,7 @@ import com.binance.api.client.domain.event.ListenKey;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.general.ExchangeInfo;
 import com.binance.api.client.domain.general.ServerTime;
+import com.binance.api.client.domain.general.TradeFee;
 import com.binance.api.client.domain.market.AggTrade;
 import com.binance.api.client.domain.market.BookTicker;
 import com.binance.api.client.domain.market.Candlestick;
@@ -65,6 +66,11 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   @Override
   public void getAllAssets(BinanceApiCallback<List<Asset>> callback) {
 		binanceApiService.getAllAssets().enqueue(new BinanceApiCallbackAdapter<>(callback));
+  }
+
+  @Override
+  public void getAllTradeFees(BinanceApiCallback<List<TradeFee>> callback) {
+    binanceApiService.getAllTradeFees().enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
   // Market Data endpoints
