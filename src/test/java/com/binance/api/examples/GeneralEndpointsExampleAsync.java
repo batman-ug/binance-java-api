@@ -41,5 +41,10 @@ public class GeneralEndpointsExampleAsync {
     // Obtain asset information
     client.getAllAssets(allAssets ->
         System.out.println(allAssets.stream().filter(asset -> asset.getAssetName().equals("BNB")).findFirst().get()));
+    
+ 	// Obtain tradeFee
+ 	client.getAllTradeFees(System.currentTimeMillis(), "ETHBTC", null, allTradeFees -> {
+ 		System.out.println(allTradeFees);
+ 	});
   }
 }

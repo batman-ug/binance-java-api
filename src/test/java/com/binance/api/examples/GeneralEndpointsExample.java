@@ -7,6 +7,7 @@ import com.binance.api.client.domain.general.ExchangeInfo;
 import com.binance.api.client.domain.general.FilterType;
 import com.binance.api.client.domain.general.SymbolFilter;
 import com.binance.api.client.domain.general.SymbolInfo;
+import com.binance.api.client.domain.general.TradeFee;
 
 import java.util.List;
 
@@ -42,5 +43,8 @@ public class GeneralEndpointsExample {
     // Obtain asset information
     List<Asset> allAssets = client.getAllAssets();
     System.out.println(allAssets.stream().filter(asset -> asset.getAssetName().equals("BNB")).findFirst().get());
+
+	List<TradeFee> allTradeFees = client.getAllTradeFees(System.currentTimeMillis(), null, null);
+	System.out.println(allTradeFees.stream().filter(fee -> fee.getSymbol().equals("ETHBTC")).findFirst().get());
   }
 }
