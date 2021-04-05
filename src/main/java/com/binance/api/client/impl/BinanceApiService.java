@@ -40,7 +40,8 @@ public interface BinanceApiService {
 
 	@Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
 	@GET("/sapi/v1/asset/tradeFee")
-	Call<List<TradeFee>> getAllTradeFees();
+	Call<List<TradeFee>> getAllTradeFees(@Query("timestamp") long timestamp, @Query("symbol") String symbol,
+			@Query("recvWindow") Long recvWindow);
 
     // Market data endpoints
 

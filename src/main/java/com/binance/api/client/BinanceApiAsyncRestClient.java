@@ -60,7 +60,7 @@ public interface BinanceApiAsyncRestClient {
   /**
    * @return All trade fees for each asset.
    */
-  void getAllTradeFees(BinanceApiCallback<List<TradeFee>> callback);
+  void getAllTradeFees(long timestamp, String symbol, Long recvWindow, BinanceApiCallback<List<TradeFee>> callback);
 
   // Market Data endpoints
 

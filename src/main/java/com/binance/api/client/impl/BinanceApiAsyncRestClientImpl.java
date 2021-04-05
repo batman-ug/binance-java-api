@@ -69,8 +69,8 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   }
 
   @Override
-  public void getAllTradeFees(BinanceApiCallback<List<TradeFee>> callback) {
-    binanceApiService.getAllTradeFees().enqueue(new BinanceApiCallbackAdapter<>(callback));
+  public void getAllTradeFees(long timestamp, String symbol, Long recvWindow, BinanceApiCallback<List<TradeFee>> callback) {
+    binanceApiService.getAllTradeFees(timestamp, symbol, recvWindow).enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
   // Market Data endpoints

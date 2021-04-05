@@ -50,8 +50,8 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	}
 
 	@Override
-	public List<TradeFee> getAllTradeFees() {
-		return executeSync(binanceApiService.getAllTradeFees());
+	public List<TradeFee> getAllTradeFees(long timestamp, String symbol, Long recvWindow) {
+		return executeSync(binanceApiService.getAllTradeFees(timestamp, symbol, recvWindow));
 	}
 
 	// Market Data endpoints
