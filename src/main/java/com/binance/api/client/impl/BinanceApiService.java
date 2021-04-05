@@ -33,8 +33,9 @@ public interface BinanceApiService {
     @GET("/api/v3/exchangeInfo")
     Call<ExchangeInfo> getExchangeInfo();
 
-    @GET
-    Call<List<Asset>> getAllAssets(@Url String url);
+	@Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
+	@GET("/sapi/v1/margin/allAssets")
+	Call<List<Asset>> getAllAssets();
 
     // Market data endpoints
 

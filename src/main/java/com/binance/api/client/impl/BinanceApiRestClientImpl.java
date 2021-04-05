@@ -1,7 +1,6 @@
 package com.binance.api.client.impl;
 
 import com.binance.api.client.BinanceApiRestClient;
-import com.binance.api.client.config.BinanceApiConfig;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.account.*;
 import com.binance.api.client.domain.account.request.*;
@@ -46,8 +45,7 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 
 	@Override
 	public List<Asset> getAllAssets() {
-		return executeSync(binanceApiService
-				.getAllAssets(BinanceApiConfig.getAssetInfoApiBaseUrl() + "assetWithdraw/getAllAsset.html"));
+		return executeSync(binanceApiService.getAllAssets());
 	}
 
 	// Market Data endpoints

@@ -40,6 +40,6 @@ public class GeneralEndpointsExampleAsync {
 
     // Obtain asset information
     client.getAllAssets(allAssets ->
-        System.out.println(allAssets.stream().filter(asset -> asset.getAssetCode().equals("BNB")).findFirst().get()));
+        System.out.println(allAssets.stream().filter(asset -> asset.getAssetName().equals("BNB")).findFirst().get()));
   }
 }

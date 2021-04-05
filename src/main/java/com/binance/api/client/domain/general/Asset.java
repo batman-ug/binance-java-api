@@ -6,118 +6,87 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * An asset Binance supports.
+ * An asset Binance supports. Representing the provided Asset model. <a href=
+ * "https://binance-docs.github.io/apidocs/spot/en/#get-all-margin-assets-market_data">See
+ * Doku</a>
  */
  @JsonIgnoreProperties(ignoreUnknown = true)
  public class Asset {
 
-   @JsonProperty("id")
-   private String id;
-
-   @JsonProperty("assetCode")
-   private String assetCode;
-
    @JsonProperty("assetName")
    private String assetName;
 
-   @JsonProperty("unit")
-   private String unit;
+	@JsonProperty("assetFullName")
+	private String assetFullName;
 
-   @JsonProperty("transactionFee")
-   private String transactionFee;
+	@JsonProperty("isBorrowable")
+	private boolean borrowable;
 
-   @JsonProperty("commissionRate")
-   private String commissionRate;
+	@JsonProperty("isMortgageable")
+	private boolean mortgageable;
 
-   @JsonProperty("freeAuditWithdrawAmt")
-   private String freeAuditWithdrawAmount;
+	@JsonProperty("userMinBorrow")
+	private double userMinBorrow;
 
-   @JsonProperty("freeUserChargeAmount")
-   private String freeUserChargeAmount;
-
-   @JsonProperty("minProductWithdraw")
-   private String minProductWithdraw;
-
-   @JsonProperty("withdrawIntegerMultiple")
-   private String withdrawIntegerMultiple;
-
-   @JsonProperty("confirmTimes")
-   private long confirmTimes;
-
-   @JsonProperty("enableWithdraw")
-   private boolean enableWithdraw;
-
-   @JsonProperty("isLegalMoney")
-   private boolean isLegalMoney;
-
-   public String getId() {
-     return id;
-   }
-
-   public String getAssetCode() {
-     return assetCode;
-   }
+	@JsonProperty("userMinRepay")
+	private double userMinRepay;
 
    public String getAssetName() {
      return assetName;
    }
 
-   public String getUnit() {
-     return unit;
+	public void setAssetName(String assetName) {
+		this.assetName = assetName;
    }
 
-   public String getTransactionFee() {
-     return transactionFee;
+	public String getAssetFullName() {
+		return assetFullName;
    }
 
-   public String getCommissionRate() {
-     return commissionRate;
+	public void setAssetFullName(String assetFullName) {
+		this.assetFullName = assetFullName;
    }
 
-   public String getFreeAuditWithdrawAmount() {
-     return freeAuditWithdrawAmount;
+	public boolean isBorrowable() {
+		return borrowable;
    }
 
-   public String getFreeUserChargeAmount() {
-     return freeUserChargeAmount;
+	public void setBorrowable(boolean borrowable) {
+		this.borrowable = borrowable;
    }
 
-   public String minProductWithdraw() {
-     return minProductWithdraw;
+	public boolean isMortgageable() {
+		return mortgageable;
    }
 
-   public String getWithdrawIntegerMultiple() {
-     return withdrawIntegerMultiple;
+	public void setMortgageable(boolean mortgageable) {
+		this.mortgageable = mortgageable;
    }
 
-   public long getConfirmTimes() {
-     return confirmTimes;
+	public double getUserMinBorrow() {
+		return userMinBorrow;
    }
 
-   public boolean canWithraw() {
-     return enableWithdraw;
+	public void setUserMinBorrow(double userMinBorrow) {
+		this.userMinBorrow = userMinBorrow;
    }
 
-   public boolean isLegalMoney() {
-     return isLegalMoney;
+	public double getUserMinRepay() {
+		return userMinRepay;
    }
 
-   @Override
-   public String toString() {
-     return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-         .append("id", id)
-         .append("assetCode", assetCode)
-         .append("assetName", assetName)
-         .append("unit", unit)
-         .append("transactionFee", transactionFee)
-         .append("commissionRate", commissionRate)
-         .append("freeAuditWithdrawAmount", freeAuditWithdrawAmount)
-         .append("freeUserChargeAmount", freeUserChargeAmount)
-         .append("minProductWithdraw", minProductWithdraw)
-         .append("withdrawIntegerMultiple", withdrawIntegerMultiple)
-         .append("confirmTimes", confirmTimes)
-         .append("enableWithdraw", enableWithdraw)
-         .append("isLegalMoney", isLegalMoney)
-         .toString();
-   }
- }
+	public void setUserMinRepay(double userMinRepay) {
+		this.userMinRepay = userMinRepay;
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("assetName", assetName)
+				.append("assetFullName", assetFullName)
+				.append("isBorrowable", borrowable)
+				.append("isMortgageable", mortgageable)
+				.append("userMinBorrow", userMinBorrow)
+				.append("userMinRepay", userMinRepay)
+				.toString();
+	}
+}

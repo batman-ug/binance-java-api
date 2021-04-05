@@ -2,7 +2,6 @@ package com.binance.api.client.impl;
 
 import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiCallback;
-import com.binance.api.client.config.BinanceApiConfig;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.account.Account;
 import com.binance.api.client.domain.account.DepositAddress;
@@ -65,8 +64,7 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
 
   @Override
   public void getAllAssets(BinanceApiCallback<List<Asset>> callback) {
-    binanceApiService.getAllAssets(BinanceApiConfig.getAssetInfoApiBaseUrl() + "assetWithdraw/getAllAsset.html")
-        .enqueue(new BinanceApiCallbackAdapter<>(callback));
+		binanceApiService.getAllAssets().enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
   // Market Data endpoints
