@@ -15,10 +15,10 @@ public class TradeFee {
 	@JsonProperty("symbol")
 	private String symbol;
 
-	@JsonProperty("maker")
+	@JsonProperty("makerCommission")
 	private double maker;
 
-	@JsonProperty("taker")
+	@JsonProperty("takerCommission")
 	private double taker;
 
 	public String getSymbol() {
